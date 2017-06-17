@@ -1,10 +1,10 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { selectReddit, fetchPostsIfNeeded, invalidateReddit } from '../actions';
-import Picker from '../components/Picker';
-import Posts from '../components/Posts';
+import { selectReddit, fetchPostsIfNeeded, invalidateReddit } from '../actions/';
+import Picker from './Picker';
+import Posts from './Posts';
 
-class AsyncApp extends Component {
+class Home extends Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
@@ -72,7 +72,7 @@ class AsyncApp extends Component {
   }
 }
 
-AsyncApp.propTypes = {
+Home.propTypes = {
   selectedReddit: PropTypes.string.isRequired,
   posts: PropTypes.array.isRequired,
   isFetching: PropTypes.bool.isRequired,
@@ -99,4 +99,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(AsyncApp);
+export default connect(mapStateToProps)(Home);
