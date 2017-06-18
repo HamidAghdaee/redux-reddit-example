@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
-import configureStore, { history } from './configureStore';
+import store, { history } from './store';
 import Home from './components/Home';
 import Post from './components/Post';
+import SubReddit from './components/SubReddit';
 import { Route } from 'react-router'
 import { ConnectedRouter } from 'react-router-redux'
-
-const store = configureStore();
 
 export default class App extends Component {
   render() {
@@ -14,8 +13,8 @@ export default class App extends Component {
       <Provider store={store}>
         <ConnectedRouter history={history}>
           <div>
-            <Route exact path="/" component={Home}/>
-            <Route exact path="/subreddit/:subreddit_id/comments/:id" component={Post}/>
+            <Route exact path="/subreddit/:subreddit_id" component={SubReddit}/>
+            <Route exact path="/subreddit/:subreddit_id/posts/:id" component={Post}/>
           </div>
         </ConnectedRouter>
       </Provider>

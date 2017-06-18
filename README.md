@@ -15,3 +15,21 @@ Fortunately the middleware part of redux allows the interception of actions and 
 These are where the side effects can live:
 
 https://goshakkk.name/redux-side-effect-approaches/
+
+Flow:
+* Talk about redux sync and async flow. introduce to thunks and middleware
+
+*  Talk about the app as it is.
+*  Try to write tests for synchronous action creator. **I Do and we do**
+
+*  Write test for the thunk. See how hard it is. **I Do and we do**
+
+* Ok, now move the handling of the api call to a middleware on its own. **I do and we do** create a middleware that intercepts actions.
+
+* **You do:** actually complete the api call middleware layer.
+
+https://github.com/StephenGrider/BookListM
+## redux Saga:
+So far we have sagas for the subreddit path and home.
+* I do/we do: add saga for handleRefreshClick + tests
+* you do: add saga for the by post id route + tests
