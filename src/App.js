@@ -5,6 +5,7 @@ import Home from './components/Home';
 import Post from './components/Post';
 import { Route } from 'react-router'
 import { ConnectedRouter } from 'react-router-redux'
+import * as RX from 'rxjs';
 
 const store = configureStore();
 

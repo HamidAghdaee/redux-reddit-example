@@ -5,6 +5,11 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import { routerMiddleware } from 'react-router-redux'
 import createHistory from 'history/createBrowserHistory'
 
+import { createEpicMiddleware } from 'redux-observable';
+import rootEpic  from './epics/root';
+
+const epicMiddleware = createEpicMiddleware(rootEpic);
+
 export const history = createHistory()
 export default function configureStore(preloadedState) {
   return createStore(
@@ -12,7 +17,8 @@ export default function configureStore(preloadedState) {
     preloadedState,
     composeWithDevTools(applyMiddleware(
       thunkMiddleware,
-      routerMiddleware(history)
+      routerMiddleware(history),
+      epicMiddleware
     ))
   )
 }
