@@ -34,11 +34,15 @@ function receivePosts(reddit, json) {
   };
 }
 
-function fetchPosts(reddit) {
+export function fetchPosts(reddit) {
   return dispatch => {
     dispatch(requestPosts(reddit));
+    console.log(fetch === global.fetch)
     return fetch(`http://www.reddit.com/r/${reddit}.json`)
-      .then(req => req.json())
+      .then(req => {
+        console.log(req)
+        return req.json()
+      })
       .then(json => dispatch(receivePosts(reddit, json)));
   }
 }
